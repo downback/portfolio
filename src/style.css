@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "KoddiUD OnGothic";
+  src: url("./font/PicNic.woff2") format(woff2),
+    url("./font/PicNic.woff") format(woff);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 500vh;
+  width: 100vw;
+}
+
+h1 {
+  /* position: fixed; */
+  font-family: "KoddiUD OnGothic", sans-serif;
+  font-size: 5rem;
+  padding-top: 10vh;
+  text-align: center;
+  width: 100vw;
+  /* text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+}
+
+h2 {
+  color: #fff;
+  font-size: 2rem;
+  padding-top: 60vh;
+  text-align: center;
+  width: 100vw;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+button {
+  width: 100px;
+  height: 50px;
+}
