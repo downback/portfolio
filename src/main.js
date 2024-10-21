@@ -282,13 +282,13 @@ async function init() {
   //   scrollTrigger: {
   //     trigger: ".wrapper",
   //     start: "top top",
-  //     // end: "300vh",
+  //     end: "=+500",
   //     scrub: true,
   //   },
   // })
 
   gsap.fromTo(
-    h2,
+    ".landing-sub",
     {
       opacity: 1,
     },
@@ -298,29 +298,11 @@ async function init() {
         trigger: ".wrapper",
         start: "top top",
         // endTrigger: "#btn1",
-        end: "100vh",
+        end: "150vh",
         scrub: true,
       },
     }
   )
-
-  // gsap.fromTo(
-  //   btn,
-  //   {
-  //     display: "none",
-  //     opacity: 0,
-  //   },
-  //   {
-  //     display: "block",
-  //     opacity: 1,
-  //     scrollTrigger: {
-  //       trigger: ".wrapper",
-  //       start: "top top",
-  //       end: "+200vh",
-  //       scrub: true,
-  //     },
-  //   }
-  // )
 
   // gsap.fromTo(
   //   btn,

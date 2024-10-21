@@ -132,11 +132,12 @@
     margin-top: calc(100vh - 11%);
   }
   #btn1 {
-    top: 190vh;
-    left: 17%;
+    top: 130vh;
+    left: 60%;
   }
   #btn2 {
-    top: 280vh;
+    top: 250vh;
+    left: 17%;
   }
   #btn3 {
     top: 380vh;
