@@ -46,8 +46,8 @@ async function init() {
   //   const controls = new OrbitControls(camera, renderer.domElement)
 
   // axes helper
-  //   const axesHelper = new THREE.AxesHelper(5)
-  //   scene.add(axesHelper)
+  // const axesHelper = new THREE.AxesHelper(5)
+  // scene.add(axesHelper)
 
   // plane
   const planeGeometry = new THREE.PlaneGeometry(50, 50)
@@ -132,9 +132,18 @@ async function init() {
   // render = animate
   renderer.render(scene, camera)
 
+  let animationStartTime = null
+
   function render() {
-    // logo.update()
-    logoAnimation()
+    if (animationStartTime === null) {
+      animationStartTime = Date.now()
+    }
+
+    const elapsedTime = (Date.now() - animationStartTime) / 1000
+
+    if (elapsedTime <= 5.5) {
+      logoAnimation()
+    }
 
     renderer.render(scene, camera)
     requestAnimationFrame(render)
@@ -150,6 +159,28 @@ async function init() {
   }
   window.addEventListener("resize", handleResize)
 
+  //button visibility control by scroll
+  // gsap.fromTo(
+  //   btn,
+  //   { display: "none" }, // From hidden (display: none)
+  //   {
+  //     display: "block", // To visible (display: block)
+  //     scrollTrigger: {
+  //       trigger: ".wrapper",
+  //       start: "top top",
+  //       end: "+=500",
+  //       scrub: true,
+  //       onToggle: (self) => {
+  //         if (self.isActive) {
+  //           btn.style.display = "block"
+  //         } else {
+  //           btn.style.display = "none"
+  //         }
+  //       },
+  //     },
+  //   }
+  // )
+
   // scroll gsap
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -157,9 +188,6 @@ async function init() {
       start: "top top",
       end: "bottom bottom",
       scrub: true,
-      onStart: () => {
-        logo.update = null // Stop the logoAnimation()
-      },
     },
   })
 
@@ -187,6 +215,7 @@ async function init() {
         y: 50 * (Math.PI / 180),
         duration: 1,
       },
+
       "<"
     )
     .to(
@@ -238,46 +267,66 @@ async function init() {
       ">"
     )
 
-  // camera.position.set(-3, -2, 2)
-  // camera.rotation.x = 40 * (Math.PI / 180)
-  // camera.rotation.y = -50 * (Math.PI / 180)
+  // gsap.from(h2, {
+  //   opacity: 0,
+  //   scrollTrigger: {
+  //     trigger: ".wrapper",
+  //     start: "top top",
+  //     // end: "300vh",
+  //     scrub: true,
+  //   },
+  // })
 
-  gsap.to(h2, {
-    opacity: 0,
-    scrollTrigger: {
-      trigger: ".wrapper",
-      start: "top top",
-      end: "+=500",
-      scrub: true,
+  gsap.fromTo(
+    h2,
+    {
+      opacity: 1,
     },
-  })
+    {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".wrapper",
+        start: "top top",
+        // endTrigger: "#btn1",
+        end: "100vh",
+        scrub: true,
+      },
+    }
+  )
 
-  // .to(
-  //   camera.position,
+  // gsap.fromTo(
+  //   btn,
   //   {
-  //     x: 0,
-  //     y: 0,
-  //     z: 2,
-  //     duration: 1,
+  //     display: "none",
+  //     opacity: 0,
   //   },
-  //   "<"
+  //   {
+  //     display: "block",
+  //     opacity: 1,
+  //     scrollTrigger: {
+  //       trigger: ".wrapper",
+  //       start: "top top",
+  //       end: "+200vh",
+  //       scrub: true,
+  //     },
+  //   }
   // )
-  // .to(
-  //   camera.position,
+
+  // gsap.fromTo(
+  //   btn,
   //   {
-  //     x: 10,
-  //     y: 2,
-  //     z: 3,
-  //     duration: 1,
+  //     display: "block",
+  //     opacity: 1,
   //   },
-  //   ">"
-  // )
-  // .to(
-  //   camera.rotation,
   //   {
-  //     y: 90 * (Math.PI / 180),
-  //     duration: 1,
-  //   },
-  //   "<"
+  //     display: "none",
+  //     opacity: 0,
+  //     scrollTrigger: {
+  //       trigger: ".wrapper",
+  //       start: "top top",
+  //       end: "+=300vh",
+  //       scrub: true,
+  //     },
+  //   }
   // )
 }
