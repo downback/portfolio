@@ -81,10 +81,20 @@ async function init() {
     }
   })
 
-  logo.scale.set(0.4, 0.4, 0.4)
-  logo.position.set(0, 0, 0)
+  // logo.castShadow = true
 
-  logo.castShadow = true
+  // logo position & scale responsive
+  if (window.innerWidth <= 450) {
+    logo.scale.set(0.25, 0.25, 0.25)
+    logo.position.set(-0.3, 0.4, 0)
+    logo.rotation.z = -130 * (Math.PI / 180)
+  } else if (window.innerWidth <= 820) {
+    logo.scale.set(0.2, 0.2, 0.2)
+    logo.position.set(0, 0, 0)
+  } else {
+    logo.scale.set(0.4, 0.4, 0.4)
+    logo.position.set(0, 0, 0)
+  }
 
   //logo animation
   const clock = new THREE.Clock()

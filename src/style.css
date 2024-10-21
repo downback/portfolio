@@ -20,6 +20,16 @@
   left: 0;
 }
 
+@media screen and (max-width: 768px) {
+  #canvas {
+  }
+}
+@media screen and (max-width: 450px) {
+  .contents p {
+    font-size: 1.2rem;
+  }
+}
+
 .wrapper {
   position: relative;
   min-height: 500vh;
@@ -27,7 +37,7 @@
   /* background: #000; */
 }
 
-h2 {
+.landing-sub {
   color: #fff;
   font-size: 1.5rem;
   font-family: "Merriweather", serif;
@@ -109,4 +119,27 @@ h2 {
   font-family: "Merriweather", serif;
   margin-left: 10%;
   font-size: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .landing-sub {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .landing-sub {
+    font-size: 1.1rem;
+    margin-top: calc(100vh - 11%);
+  }
+  #btn1 {
+    top: 190vh;
+    left: 17%;
+  }
+  #btn2 {
+    top: 280vh;
+  }
+  #btn3 {
+    top: 380vh;
+    left: 20%;
+  }
 }
