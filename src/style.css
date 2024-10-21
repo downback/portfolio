@@ -37,7 +37,7 @@
   /* background: #000; */
 }
 
-.landing-sub {
+h2 {
   color: #fff;
   font-size: 1.5rem;
   font-family: "Merriweather", serif;
@@ -122,12 +122,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  .landing-sub {
+  h2 {
     font-size: 1.4rem;
   }
 }
 @media screen and (max-width: 450px) {
-  .landing-sub {
+  h2 {
     font-size: 1.1rem;
     margin-top: calc(100vh - 11%);
   }
